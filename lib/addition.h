@@ -3,8 +3,11 @@
 
 #include <memory>
 #include <vector>
-#include "core.h"
-#include "visitor.h"
+#include "core.h"//
+#include "visitor.h"//
+
+//class Core;
+//class Visitor;
 
 using sCore = std::shared_ptr<Core>;
 template<typename T>
@@ -16,12 +19,12 @@ public:
 	Addition(){};
 	Addition(const vec<sCore>& v_);
 	virtual ~Addition(){};
-	sCore add(const Visitor& v, const sCore& c) override;
-	sCore _add(const Visitor& v, const Complex& c) override;
-	sCore _add(const Visitor& v, const Addition& a) override;
-	sCore neg() override;
-	sCore simplify() override;
-	void print() override;
+	sCore add(const Visitor& v, const sCore& c) const override;
+	sCore _add(const Visitor& v, const Complex& c) const override;
+	sCore _add(const Visitor& v, const Addition& a) const override;
+	sCore neg() const override;
+	sCore simplify() const override;
+	void print() const override;
 };
 
 

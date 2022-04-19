@@ -16,12 +16,12 @@ public:
 	virtual ~Complex(){};
 	Complex(const double& real_);
     Complex(const double& real_, const double& imag_);
-	sCore add(const Visitor& v, const sCore& c) override;
-	sCore _add(const Visitor& v, const Complex& c) override;
-	sCore _add(const Visitor& v, const Addition& a) override;
-	sCore neg() override;
-	sCore simplify() override;
-	void print() override;
+	sCore add(const Visitor& v, const sCore& c) const override;
+	sCore _add(const Visitor& v, const Complex& c) const override;
+	sCore _add(const Visitor& v, const Addition& a) const override;
+	sCore neg() const override;
+	sCore simplify() const override;
+	void print() const override;
 };
 
 
