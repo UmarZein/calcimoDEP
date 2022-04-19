@@ -1,0 +1,32 @@
+struct Core;
+struct Complex: Core;
+
+struct Visitor{
+	*Core multiply(Complex c1, Core* c2){
+		return c2->multiply(this, c1)
+	}
+	*Core multiply(Complex c1, Complex c2){
+		return ptr(c1+c2)
+	}
+}
+
+struct Core{
+	*Core multiply(Visitor* v, *Core c);
+	*Core multiply(Visitor* v, Complex c);
+};
+struct Complex:Core{
+	*Core multiply(Visitor* v, Core* c){
+		return v->multiply(*this, c);
+	}
+	*Core multiply(Visitor* v, Complex c){
+		return v->multiply(*this, c)
+	}
+};
+
+Visitor v;
+*Core a=&Complex(2)
+*Core b=&Complex(3)
+
+a->multiply(&v, b)
+
+
